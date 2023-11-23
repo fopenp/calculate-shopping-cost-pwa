@@ -8,6 +8,31 @@
     "theme_color": "#252525",
     "icons": [
         {
+            "src": "icone/icona-csc-pwa-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "icone/icona-csc-pwa-64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "icone/icona-csc-pwa-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "icone/icona-csc-pwa-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "icone/icona-csc-pwa-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
             "src": "icona-csc-pwa.svg",
             "type": "image/svg",
             "sizes": "any"

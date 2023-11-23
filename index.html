@@ -179,7 +179,7 @@ MODIFICATIONS.`
                 <div class="flexColCentro">
                     <button id="btnDaCreditiAImpostazioni" onclick="barraNavPassaAlId(2);"></button>
                     <script>document.getElementById("btnDaCreditiAImpostazioni").textContent = i18n[lingua].btnPrev;</script>
-                    <h2 id="txtCreditiTitolo"></h2>
+                    <h2 id="txtCreditiTitolo" class="testoCentro"></h2>
                     <h2 id="txtCreditiVersione"></h2>
                     <h2 id="txtCreditiWoT" style="text-align: center;"></h2>
                     <script>
@@ -217,6 +217,7 @@ MODIFICATIONS.`
             calcolaContantiDaDare();
             aggiornaUltimoSaldo();
             aggiornaMovimenti();
+            aggiungiEventiTouch();
 
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("/calculate-shopping-cost-pwa/sw.js", { scope: "/calculate-shopping-cost-pwa/" });

@@ -481,3 +481,12 @@ function fnRadAA() {
     aggiornaUltimoSaldo();
     salvaSulloStorage();
 }
+
+function processaTouchMove(ev) {
+    console.log("touchmove");
+}
+
+function aggiungiEventiTouch() {
+    const spesa = document.getElementById("spesa");
+    spesa.addEventListener("touchmove", processaTouchMove, false);
+}
