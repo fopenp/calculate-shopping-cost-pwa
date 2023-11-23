@@ -1,0 +1,17 @@
+{
+    "name": "FopenP Calculate Shopping Cost (PWA Edition)",
+    "short_name": "FopenP CSC (PWA)",
+    "description": "Calculate your shopping cost taken from credit card and cash.",
+    "scope": "/calculate-shopping-cost-pwa/",
+    "start_url": "/calculate-shopping-cost-pwa/",
+    "background_color": "#252525",
+    "theme_color": "#252525",
+    "icons": [
+        {
+            "src": "icona-csc-pwa.svg",
+            "type": "image/svg",
+            "sizes": "any"
+        }
+    ],
+    "display": "standalone"
+}

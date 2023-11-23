@@ -1,0 +1,198 @@
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 2px solid blue;
+    background-color: #151515;
+    color: #efefef;
+    overflow: hidden;
+}
+
+button {
+    font-size: 2em;
+}
+
+.spesa, .saldo, .movimenti, .impostazioni, .crediti {
+    position: absolute;
+    border: 1px solid red;
+    /* display: flex; */
+    width: 90vw;
+    /* height: 90vh; */
+    height: calc(90vh - 20%);
+    /* top: 50%; */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rel {
+    position: relative;
+}
+
+.oauto {
+    overflow: auto;
+}
+
+.trnsTransformOpacity {
+    transition: transform 0.5s ease-in-out, opacity 1.0s linear;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.opacity0 {
+    opacity: 0.0;
+}
+
+.staiADx {
+    transform: translate(100%, -50%);
+}
+
+.staiASx {
+    transform: translate(-200%, -50%);
+}
+
+.staiSu {
+    transform: translate(-50%, -200%);
+}
+
+.staiGiu {
+    transform: translate(-50%, 100%);
+}
+
+.contenitore {
+    height: 80%;
+    border: 1px solid brown;
+}
+
+.barranav {
+    height: 20%;
+    border: 1px solid orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btnnav {
+    width: 33%;
+    height: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: background-color 0.3s linear;
+    border: 2px solid gray;
+}
+
+.navmoji {
+    font-size: 3em;
+}
+
+#divSpesa {
+    background-color: #353535;
+}
+
+#divSaldo {
+    opacity: 0.4;
+}
+
+#divImpostazioni {
+    opacity: 0.4;
+}
+
+.inInput {
+    width: 5em;
+    font-size: 5em;
+    text-align: center;
+    /* -webkit-appearance: none; */
+    -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 600px) {
+    .inInput {
+        width: 70vw;
+    }
+}
+
+.flexColCentro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flexRowCentro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.valutaSimbolo {
+    font-size: 5em;
+}
+
+.chkBox {
+    width: 3em;
+    height: 3em;
+}
+
+.labelChkBox {
+    font-size: 3em;
+}
+
+.divChkBox {
+    border: 2px solid lightgray;
+    border-radius: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: #252525;
+    flex-shrink: 0;
+}
+
+.divEstContantiDaDare {
+    border: 2px solid gray;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    padding-right: 1em;
+}
+
+#divContantiDaDare {
+    font-size: 5em;
+    margin-right: 0.2em;
+    padding: 0.2em;
+}
+
+.h2Testo {
+    font-size: 4em;
+}
+
+.btnSaldoBack {
+    font-size: 5em;
+}
+
+.distanziaAltezza1 {
+    height: 4em;
+}
+
+.radRadio {
+    width: 3em;
+    height: 3em;
+}
+
+.labelRadio1 {
+    font-size: 3em;
+}
+
+.borderRad2em {
+    border-radius: 2em;
+}
+
+.testoCentro {
+    text-align: center;
+}

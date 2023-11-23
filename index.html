@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        let versione = "v0.0.1";
+        let i18n = {
+            "en": {
+                titolo: "FopenP Calculate Shopping Cost (PWA Edition)",
+                versione: versione,
+                btnSaldo: "BALANCE",
+                btnSpesa: "SHOPPING",
+                btnMovimenti: "LIST OF TRANSACTIONS",
+                btnPrev: "PREVIOUS",
+                btnImpostazioni: "SETTINGS",
+                txtTotSpesa: "Tot. Cost:",
+                contantiDaDare: "Cash to give:",
+                btnMovimenti: "LIST OF TRANSACTIONS",
+                txtSaldoCarta: "Card Balance:",
+                btnNuovoSaldo: "NEW BALANCE",
+                btnSottrai: "SUBTRACT FROM SHOPPING",
+                btnCrediti: "CREDITS",
+                txtValuta: "Currency:",
+                txtFormatoData: "Date Format:",
+                lblGGMMAA: "Day/Month/Year",
+                lblMMGGAA: "Month/Day/Year",
+                btnCancellaMovimenti: "DELETE TRANSACTIONS",
+                creditiWoT: `Original author: Fabio Pollini (a.k.a. FopenP)<br>
+        &lt;f.open.p@gmail.com&gt;<br>
+        <br>
+        IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY
+FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY
+DERIVATIVES THEREOF, EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.<br>
+<br>
+THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE
+IS PROVIDED ON AN "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE
+NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR
+MODIFICATIONS.`
+            },
+            "it": {
+                titolo: "FopenP Calcola Costo Spesa (Edizione PWA)",
+                versione: versione,
+                btnSaldo: "SALDO",
+                btnSpesa: "SPESA",
+                btnMovimenti: "ELENCO MOVIMENTI",
+                btnPrev: "PRECEDENTE",
+                btnImpostazioni: "IMPOSTAZIONI",
+                txtTotSpesa: "Tot. della Spesa:",
+                contantiDaDare: "Contanti da dare:",
+                btnMovimenti: "ELENCO MOVIMENTI",
+                txtSaldoCarta: "Saldo nella carta:",
+                btnNuovoSaldo: "NUOVO SALDO",
+                btnSottrai: "SOTTRAI DALLA SPESA",
+                btnCrediti: "CREDITI",
+                txtValuta: "Valuta:",
+                txtFormatoData: "Formato della data:",
+                lblGGMMAA: "Giorno/Mese/Anno",
+                lblMMGGAA: "Mese/Giorno/Anno",
+                btnCancellaMovimenti: "CANCELLA MOVIMENTI",
+                creditiWoT: `Original author: Fabio Pollini (a.k.a. FopenP)<br>
+        &lt;f.open.p@gmail.com&gt;<br>
+        <br>
+        IN NESSUN CASO GLI AUTORI O I DISTRIBUTORI DOVRANNO ESSERE
+        RESPONSABILI TRA LE PARTI PER DANNI DIRETTI, INDIRETTI, SPECIALI,
+        INCIDENTALI, O CONSEQUENZIALI DERIVANTI DALL'USO DI QUESTO SOFTWARE,
+        LA SUA DOCUMENTAZIONE, O I SUOI DERIVATI, ANCHE SE GLI AUTORI SONO STATI
+        AVVERTITI DELLA POSSIBILITA\' DI TALI DANNI.<br>
+        <br>
+        GLI AUTORI E I DISTRIBUTORI ESCLUDONO QUALSIASI GARANZIA, INCLUSA, MA NON LIMITATA A,
+        LE IMPLICITE GARANZIE DI COMMERCIABILITA', IDONEITA' PER UNO SCOPO PARTICOLARE,
+        E NON INFRANGIMENTO. QUESTO SOFTWARE VIENE FORNITO SU BASE "COSI' COM'E'",
+        E GLI AUTORI E DISTRIBUTORI NON HANNO OBBLIGHI PER FORNIRE MANUTENZIONE, SUPPORTO,
+        AGGIORNAMENTI, MIGLIORAMENTI O MODIFICHE.`
+            }
+        };
+    </script>
+    <script type="text/javascript" src="index.js"></script>
+    <script>caricaDalloStorage();</script>
+    <title>FopenP Calculate Shopping Cost (PWA Edition)</title>
+    <script>document.title = i18n[lingua].titolo;</script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="icona-csc-pwa.svg">
+    <link rel="manifest" href="/calculate-shopping-cost-pwa/manifest.json">
+</head>
+<body>
+    <div class="contenitore">
+        <div id="spesa" class="spesa oauto trnsTransformOpacity">
+            <div class="rel flexColCentro">
+                <h2 id="txtTotSpesa" class="h2Testo"></h2>
+                <script>document.getElementById("txtTotSpesa").textContent = i18n[lingua].txtTotSpesa;</script>
+                <div><input id="inTotSpesa" class="inInput" name="inTotSpesa" type="number" min="0.00" step="0.01" value="0.00" onfocus="this.select();" onchange="aggiornaTotSpesa();" onkeypress="this.onchange();" oninput="this.onchange();"><span class="valutaSimbolo"></span></div>
+                <div style="margin-top: 1em;" class="flexRowCentro">
+                    <div class="divChkBox"><input id="chk050" class="chkBox" type="checkbox" onclick="fnChk050();" checked><label class="labelChkBox" for="chk050">50¢</label></div>
+                    <div class="divChkBox"><input id="chk1" class="chkBox" type="checkbox" onclick="fnChk1();" checked><label id="lblChk1" class="labelChkBox" for="chk1">1</label></div>
+                    <div class="divChkBox"><input id="chk2" class="chkBox" type="checkbox" onclick="fnChk2();" checked><label id="lblChk2" class="labelChkBox" for="chk2">2</label></div>
+                    <div class="divChkBox"><input id="chk5" class="chkBox" type="checkbox" onclick="fnChk5();" checked><label id="lblChk5" class="labelChkBox" for="chk5">5</label></div>
+                </div>
+                <h2 id="txtContantiDaDare" class="h2Testo" style="margin-top: 0.5em;"></h2>
+                <script>document.getElementById("txtContantiDaDare").textContent = i18n[lingua].contantiDaDare;</script>
+                <div class="divEstContantiDaDare flexRowCentro">
+                    <div id="divContantiDaDare">--.--</div>
+                    <div class="valutaSimbolo"></div>
+                </div>
+            </div>
+        </div>
+        <div id="saldo" class="saldo oauto trnsTransformOpacity opacity0" inert>
+            <div class="rel oauto">
+                <div class="flexColCentro">
+                    <button id="btnMovimenti" onclick="barraNavPassaAlId(3);"></button>
+                    <script>document.getElementById("btnMovimenti").textContent = i18n[lingua].btnMovimenti;</script>
+                    <h2 id="txtSaldoCarta" class="h2Testo"></h2>
+                    <script>document.getElementById("txtSaldoCarta").textContent = i18n[lingua].txtSaldoCarta;</script>
+                    <div class="flexRowCentro">
+                        <button id="btnSaldoBack" class="btnSaldoBack" style="margin-right: 0.2em" onclick="btnSaldoBack();">🔙</button>
+                        <input id="inSaldo" class="inInput" name="inSaldo" type="number" min="0.00" step="0.01" value="0.00" onfocus="this.select();">
+                        <span class="valutaSimbolo"></span>
+                    </div>
+                    <h2 id="txtDataUltimoSaldo" class="h2Testo">--/--/---- --:--</h2>
+                    <button id="btnNuovoSaldo" onclick="fnNuovoSaldo();"></button>
+                    <script>document.getElementById("btnNuovoSaldo").textContent = i18n[lingua].btnNuovoSaldo;</script>
+                    <div class="distanziaAltezza1"></div>
+                    <button id="btnSottrai" onclick="fnSottrai();"></button>
+                    <script>document.getElementById("btnSottrai").textContent = i18n[lingua].btnSottrai;</script>
+                </div>
+            </div>
+        </div>
+        <div id="movimenti" class="movimenti oauto trnsTransformOpacity opacity0" inert>
+            <div class="rel oauto">
+                <div class="flexColCentro">
+                    <button id="btnDaMovimentiASaldo" onclick="barraNavPassaAlId(1);"></button>
+                    <script>document.getElementById("btnDaMovimentiASaldo").textContent = i18n[lingua].btnPrev;</script>
+                    <h2 id="txtListaMovimenti" class="h2Testo testoCentro">
+                        <!--
+                        --/--/---- --:--<br>
+                        --/--/---- --:--<br>
+                        --/--/---- --:--<br>
+                        -->
+                    </h2>
+                    <button id="btnCancellaMovimenti" onclick="btnCancellaMovimenti();"></button>
+                    <script>document.getElementById("btnCancellaMovimenti").textContent = i18n[lingua].btnCancellaMovimenti;</script>
+                </div>
+            </div>
+        </div>
+        <div id="impostazioni" class="impostazioni oauto trnsTransformOpacity opacity0" inert>
+            <div class="rel oauto">
+                <div class="flexColCentro">
+                    <button id="btnCrediti" onclick="barraNavPassaAlId(4);"></button>
+                    <script>document.getElementById("btnCrediti").textContent = i18n[lingua].btnCrediti;</script>
+                    <h2 id="txtValuta" class="h2Testo"></h2>
+                    <script>document.getElementById("txtValuta").textContent = i18n[lingua].txtValuta;</script>
+                    <div class="flexRowCentro">
+                        <fieldset id="fsetValuta" class="borderRad2em">
+                            <input id="radEUR" type="radio" class="radRadio" value="EUR" name="fsetValuta" onclick="fnRadValute();" checked><label class="labelRadio1" for="radEUR">EUR</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id="radUSD" type="radio" class="radRadio" value="USD" name="fsetValuta" onclick="fnRadValute();"><label class="labelRadio1" for="radUSD">USD</label>
+                        </fieldset>
+                    </div>
+                    <h2 id="txtFormatoData" class="h2Testo"></h2>
+                    <script>document.getElementById("txtFormatoData").textContent = i18n[lingua].txtFormatoData;</script>
+                    <fieldset id="fsetFormatoData" class="borderRad2em">
+                        <input id="radGGMMAA" type="radio" class="radRadio" value="GGMMAA" name="fsetFormatoData" onclick="fnRadAA();" checked><label id="lblGGMMAA" class="labelRadio1" for="radGGMMAA"></label><br>
+                        <input id="radMMGGAA" type="radio" class="radRadio" value="MMGGAA" name="fsetFormatoData" onclick="fnRadAA();"><label id="lblMMGGAA" class="labelRadio1" for="radMMGGAA"></label>
+                        <script>
+                            document.getElementById("lblGGMMAA").textContent = i18n[lingua].lblGGMMAA;
+                            document.getElementById("lblMMGGAA").textContent = i18n[lingua].lblMMGGAA;
+                            aggiornaUIImpostazioni();
+                        </script>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div id="crediti" class="crediti oauto trnsTransformOpacity opacity0" inert>
+            <div class="rel oauto">
+                <div class="flexColCentro">
+                    <button id="btnDaCreditiAImpostazioni" onclick="barraNavPassaAlId(2);"></button>
+                    <script>document.getElementById("btnDaCreditiAImpostazioni").textContent = i18n[lingua].btnPrev;</script>
+                    <h2 id="txtCreditiTitolo"></h2>
+                    <h2 id="txtCreditiVersione"></h2>
+                    <h2 id="txtCreditiWoT" style="text-align: center;"></h2>
+                    <script>
+                        document.getElementById("txtCreditiTitolo").textContent = i18n[lingua].titolo;
+                        document.getElementById("txtCreditiVersione").textContent = i18n[lingua].versione;
+                        document.getElementById("txtCreditiWoT").innerHTML = i18n[lingua].creditiWoT;
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="barranav">
+        <div id="divSpesa" class="btnnav" onclick="btnSpesa();">
+            <span class="navmoji">🛒</span><br>
+            <span id="txtSpesa"></span>
+        </div>
+        <div id="divSaldo" class="btnnav" onclick="btnSaldo();">
+            <span class="navmoji">💰</span><br>
+            <span id="txtSaldo"></span>
+        </div>
+        <div id="divImpostazioni" class="btnnav" onclick="btnImpostazioni();">
+            <span class="navmoji">🛠️</span><br>
+            <span id="txtImpostazioni"></span>
+        </div>
+        <script>
+            document.getElementById("txtSpesa").textContent = i18n[lingua].btnSpesa;
+            document.getElementById("txtSaldo").textContent = i18n[lingua].btnSaldo;
+            document.getElementById("txtImpostazioni").textContent = i18n[lingua].btnImpostazioni;
+        </script>
+        <script>
+            aggiornaValutaSimboloNellePagine();
+            impostaChkBoxes();
+            aggiornaSaldo();
+            aggiornaInTotSpesa();
+            calcolaContantiDaDare();
+            aggiornaUltimoSaldo();
+            aggiornaMovimenti();
+
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("/calculate-shopping-cost-pwa/sw.js", { scope: "/calculate-shopping-cost-pwa/" });
+                console.log("serviceWorker registrato.");
+            }
+            else {
+                console.log("serviceWorker non disponibile.");
+            }
+        </script>
+    </div>
+</body>
+</html>
