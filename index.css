@@ -109,7 +109,7 @@ button {
 
 .inInput {
     width: 5em;
-    font-size: 4em;
+    font-size: 10vw;
     text-align: center;
     /* -webkit-appearance: none; */
     -moz-appearance: textfield;
@@ -117,7 +117,7 @@ button {
 
 @media only screen and (max-width: 600px) {
     .inInput {
-        width: 70vw;
+        width: 50vw;
     }
 }
 
@@ -136,25 +136,26 @@ button {
 }
 
 .valutaSimbolo {
-    font-size: 5em;
+    font-size: 15vw;
 }
 
 .chkBox {
-    width: 3em;
-    height: 3em;
+    width: 8vw;
+    height: 8vw;
 }
 
 .labelChkBox {
-    font-size: 3em;
+    font-size: 8vw;
 }
 
 .divChkBox {
     border: 2px solid lightgray;
     border-radius: 1em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    /* margin-left: 0.5em; */
+    /* margin-right: 0.5em; */
     background-color: #252525;
     flex-shrink: 0;
+    margin: 2vw;
 }
 
 .divEstContantiDaDare {
@@ -171,13 +172,13 @@ button {
 }
 
 .h2Testo {
-    font-size: 3em;
+    font-size: 10vw;
     margin-top: 0.2em;
     margin-bottom: 0.2em;
 }
 
 .btnSaldoBack {
-    font-size: 5em;
+    font-size: 5vw;
 }
 
 .distanziaAltezza1 {
@@ -190,7 +191,7 @@ button {
 }
 
 .labelRadio1 {
-    font-size: 2.5em;
+    font-size: 9vw;
 }
 
 .borderRad2em {

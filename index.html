@@ -93,7 +93,7 @@ MODIFICATIONS.`
             <div class="rel flexColCentro">
                 <h2 id="txtTotSpesa" class="h2Testo"></h2>
                 <script>document.getElementById("txtTotSpesa").textContent = i18n[lingua].txtTotSpesa;</script>
-                <div><input id="inTotSpesa" class="inInput" name="inTotSpesa" type="number" min="0.00" step="0.01" value="0.00" onfocus="this.select();" onchange="aggiornaTotSpesa();" onkeypress="this.onchange();" oninput="this.onchange();"><span class="valutaSimbolo"></span></div>
+                <div class="flexRowCentro"><input id="inTotSpesa" class="inInput" name="inTotSpesa" type="number" min="0.00" step="0.01" value="0.00" onfocus="this.select();" onchange="aggiornaTotSpesa();" onkeypress="this.onchange();" oninput="this.onchange();"><span class="valutaSimbolo"></span></div>
                 <div style="margin-top: 1em;" class="flexRowCentro">
                     <div class="divChkBox"><input id="chk050" class="chkBox" type="checkbox" onclick="fnChk050();" checked><label class="labelChkBox" for="chk050">50¢</label></div>
                     <div class="divChkBox"><input id="chk1" class="chkBox" type="checkbox" onclick="fnChk1();" checked><label id="lblChk1" class="labelChkBox" for="chk1">1</label></div>
