@@ -6,6 +6,7 @@ else
     lingua = "en";
 
 let Globali = {
+    versione: "v1",  // Versione del JSON
     valuta: 0,  // 0 => EUR ; 1 => USD
     valutaSimbolo: "€",
     chk050: true,
