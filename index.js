@@ -312,6 +312,30 @@ function calcolaContantiDaDare() {
             dadare = 0.0 + dadareUnita + (dadareCents / 100.0)
         }
     }
+    if (!Globali.chk050 && !Globali.chk1 && !Globali.chk2 && Globali.chk5) {  // solo chk5
+        let dadareMod10 = dadareUnita % 10;
+        if (dadareMod10 == 4 || dadareMod10 == 9) {
+            dadareUnita += 1;
+            dadareCents = 0;
+            dadare = 0.0 + dadareUnita + (dadareCents / 100.0)
+        }
+    }
+    if (!Globali.chk050 && !Globali.chk1 && !Globali.chk2 && !Globali.chk5) {  // nessuno attivato
+        let dadareMod10 = dadareUnita % 10;
+        if (dadareMod10 != 0) {
+            dadareUnita += (10 - dadareMod10);
+            dadareCents = 0;
+            dadare = 0.0 + dadareUnita + (dadareCents / 100.0)
+        }
+    }
+    if (!Globali.chk050 && !Globali.chk1 && Globali.chk2 && !Globali.chk5) {  // solo chk2
+        let dadareMod2 = dadareUnita % 2;
+        if (dadareMod2 == 1) {
+            dadareUnita += 1;
+            dadareCents = 0;
+            dadare = 0.0 + dadareUnita + (dadareCents / 100.0)
+        }
+    }
     Globali.dadare = dadare;
     // console.log(`calcolaContantiDaDare() - dadare: ${dadare} - ${dadareUnita} ${dadareCents}`);
     document.getElementById("divContantiDaDare").textContent = dadare.toFixed(2);
