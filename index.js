@@ -304,7 +304,7 @@ function calcolaContantiDaDare() {
             dadare = 0.0 + dadareUnita + (dadareCents / 100.0)
         }
     }
-    if (!Globali.chk5) {
+    if (!Globali.chk050 && !Globali.chk1 && !Globali.chk2 && !Globali.chk5) {
         let dadareMod10 = dadareUnita % 10;
         if (dadareMod10 == 5) {
             dadareUnita += 5;
