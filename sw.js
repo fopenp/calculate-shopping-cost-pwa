@@ -1,5 +1,5 @@
 const PERCORSO="/calculate-shopping-cost-pwa";
-const VERSIONE="v12";
+const VERSIONE="v13";
 const NOME_CACHE=`calculate-shopping-cost-pwa-${VERSIONE}`;
 
 const URLS = [
@@ -10,8 +10,13 @@ const URLS = [
     `${PERCORSO}/icona-csc-pwa.svg`,
     `${PERCORSO}/icone/icona-csc-pwa-512.png`,
     `${PERCORSO}/icone/icona-csc-pwa-256.png`,
+    `${PERCORSO}/icone/icona-csc-pwa-180.png`,
+    `${PERCORSO}/icone/icona-csc-pwa-152.png`,
     `${PERCORSO}/icone/icona-csc-pwa-128.png`,
+    `${PERCORSO}/icone/icona-csc-pwa-120.png`,
+    `${PERCORSO}/icone/icona-csc-pwa-76.png`,
     `${PERCORSO}/icone/icona-csc-pwa-64.png`,
+    `${PERCORSO}/icone/icona-csc-pwa-60.png`,
     `${PERCORSO}/icone/icona-csc-pwa-48.png`,
     `${PERCORSO}/manifest.json`
 ];
