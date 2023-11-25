@@ -212,44 +212,44 @@ button {
 
 @media only screen and (min-width: 1024px) {
     .h2Testo {
-        font-size: 5vw;
+        font-size: 9vh;
     }
 
     .inInput {
-        font-size: 2vw;
+        font-size: 5vh;
     }
 
     .valutaSimbolo {
-        font-size: 3vw;
+        font-size: 7vh;
     }
 
     .chkBox {
-        width: 2vw;
-        height: 2vw;
+        width: 3vh;
+        height: 3vh;
     }
 
     .labelChkBox {
-        font-size: 3vw;
+        font-size: 3vh;
     }
 
     #divContantiDaDare {
-        font-size: 3vw;
+        font-size: 7vh;
     }
 
     .btnSaldoBack {
-        font-size: 2vw;
+        font-size: 5vh;
     }
 
     button {
-        font-size: 2vw;
+        font-size: 3vh;
     }
 
     .radRadio {
-        width: 2vw;
-        height: 2vw;
+        width: 3vh;
+        height: 3vh;
     }
 
     .labelRadio1 {
-        font-size: 2vw;
+        font-size: 3vh;
     }
 }
