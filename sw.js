@@ -1,5 +1,5 @@
 const PERCORSO="/calculate-shopping-cost-pwa";
-const VERSIONE="v9";
+const VERSIONE="v10";
 const NOME_CACHE=`calculate-shopping-cost-pwa-${VERSIONE}`;
 
 const URLS = [

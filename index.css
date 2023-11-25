@@ -205,3 +205,51 @@ button {
 .testoCentro {
     text-align: center;
 }
+
+.spaziaTop {
+    margin-top: 2vh;
+}
+
+@media only screen and (min-width: 1024px) {
+    .h2Testo {
+        font-size: 5vw;
+    }
+
+    .inInput {
+        font-size: 2vw;
+    }
+
+    .valutaSimbolo {
+        font-size: 3vw;
+    }
+
+    .chkBox {
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .labelChkBox {
+        font-size: 3vw;
+    }
+
+    #divContantiDaDare {
+        font-size: 3vw;
+    }
+
+    .btnSaldoBack {
+        font-size: 2vw;
+    }
+
+    button {
+        font-size: 2vw;
+    }
+
+    .radRadio {
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .labelRadio1 {
+        font-size: 2vw;
+    }
+}
