@@ -377,7 +377,7 @@ function aggiornaUltimoSaldo() {
 function fnNuovoSaldo() {
     let inSaldo = document.getElementById("inSaldo").valueAsNumber;
     if (isNaN(inSaldo) || inSaldo < 0.0) {
-        inSaldo = 0.0;
+        // inSaldo = 0.0;
         Globali.saldo = 0.0;
         document.getElementById("inSaldo").value = "0.00";
         return;
